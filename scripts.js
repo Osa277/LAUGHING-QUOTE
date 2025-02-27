@@ -4,15 +4,12 @@ const quoteEl = document.getElementById("quote");
 const authorEl = document.getElementById("author");
 
 const apiURL = "https://official-joke-api.appspot.com/random_joke";
-console.log(apiURL)
-
+console.log (apiURL)
 async function getQuote() {
-
-    
-
-        
-    const response = await fetch(apiURL);
-
+    try {
+    btnEl.innerText = "loading...";
+    btnEl.disabled =  true;
+   const response = await fetch(apiURL);
     const data = await response.json();
     console.log(data)
     const quoteContent = data.punchline;
