@@ -1,4 +1,3 @@
-
 const btnEl = document.getElementById("btn");
 const quoteEl = document.getElementById("quote");
 const authorEl = document.getElementById("author");
@@ -16,16 +15,26 @@ async function getQuote() {
     const quoteAuthor = data.setup;
     quoteEl.innerText = quoteContent;
     authorEl.innerText = "~ " + quoteAuthor;
-
-
-    console.log("data");
+    btnEl.innerText = "Get a quote";
+    btnEl.disabled = false;
+    console.log(data);
+    } catch (error) {
+    console.log(error);
+    quoteEl.innerText = "try again bro or sis";
+    authorEl.innerText = "No vex maybe network problem";
+    btnEl.innerText = "Get a quote";
+    btnEl.disabled = false;  
+    }
+}
+ getQuote()
+btnEl.addEventListener("click",getQuote);
         
   
     
 
      
 
-}
+
 
 btnEl.addEventListener("click",getQuote);
 
